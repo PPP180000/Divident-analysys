@@ -1,0 +1,141 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct  9 17:47:08 2018
+
+@author: patel
+"""
+
+#STOCKS
+#1.	The Jackson-Timberlake Wardrobe Co. just paid a dividend of $1.32 per share on its stock. The dividends are expected to grow at a constant rate of 6 percent per year indefinitely.
+#Required:
+#(a)	If investors require a 10 percent return on The Jackson-Timberlake Wardrobe Co. stock, what is the current price?
+#(b)	What will the price be in 10 years?
+def CP( D, g, h):                                                     #CP = currenet price , D = dividend
+    CP = (D * (1 + g)) / (h - g)                                      # h = growth of euity , g = growth of dividend
+    return CP                                                            
+x = CP(D = 1.32, g = 0.06, h = 0.1)
+print("Answer 1a: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+def CP(D, h, g): #CP = currenet price , D = dividend
+    CP = (D * ((1 + g) ** 11)) / (h - g)        # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 1.32, g = 0.06, h = 0.1)
+print("Answer 1b: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+
+
+#2.	The next dividend payment by Hot Wings, Inc., will be $4.55 per share, The dividends are anticipated to maintain a 3 percent growth rate forever.
+#Required: If the stock sells for $40 per share, what is the required return?
+def h( D, g, CP):                                         #CP = currenet price , D = dividend
+                                                         # h = growth of euity , g = growth of dividend
+    h = (D / CP) + g
+    return h
+x = h(D = 4.55, g = 0.03, CP = 40) * 100
+print("Answer 2: The required rate of return is {} ".format("{:,.4f} %".format(x)))
+
+
+
+
+#3.	Metroplex Corporation will pay a $4.90 per share dividend next year4 The company pledges to increase its dividend by 4.30 percent per year indefinitely.
+#Required: If you require an 7.90 return on your investment, how much will you pay for the company’s stock today?
+def CP( D, h, g):                                  #CP = currenet price , D = dividend
+    CP = (D ) / (h - g)                     # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 4.9, g = 0.043, h = 0.0790)
+print("Answer 3: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+
+
+
+
+#4.	Suppose you know a company's stock currently sells for $90 per share and the required return on the stock is 10 percent. You also know that the total return on the stock is evenly divided between a capital gains yield and a dividend yield.
+#Required: If it’s the company’s policy to always maintain a constant growth rate in its dividends, what is the current dividend per share?
+def D(CP, h, g):  #CP = currenet price , D = dividend 
+    D = (CP * g) / (1 + g)  # h = growth of euity , g = growth of dividend
+    return D
+x = D( CP = 90, g = 0.05, h = 0.05) 
+print("Answer 4: The current dividend is {}".format("{:,.4f}$".format(x)))
+
+
+#5.	Apocalyptica Corp. pays a constant $25 dividend on its stock. The cornpany will maintain this dividend for the next 7 years and will then cease paying dividends forever.
+#Required: If the required return on this stock is 10 percent, what is the current share price?
+def CP(D, h):
+                #CP = currenet price , D = dividend
+    sum = 0     # h = growth of euity , g = growth of dividend
+    for i in range(0,7):
+            p = (D ) / ((1 + h) ** (i+1))
+            sum += p
+        
+    return sum        
+u = CP(D = 25,  h = 0.1)            
+print("Answer 5: The current share price is {}".format("{:,.4f} $".format(u))) 
+
+
+#6.	Red, Inc., Yellow Corp., and Blue Company each will pay a dividend of $1.40 next year. The growth rate in dividends for all three companies is 6 percent. The required return for each company's stock is 8.90 percent, 11.90 percent, and 15.30 percent, respectively.
+#Required:
+#(a)	What is the stock price for Red. Inc., Company?
+#(b)	What is the stock price for Yellow Corp. Company?
+#(c)	What is the stock price for Blue Company
+def CP(D, h, g): #CP = currenet price , D = dividend
+    CP = (D) / (h - g)        # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 1.4, g = 0.06, h = 0.089)
+print("Answer 6a: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+def CP(D, h, g): #CP = currenet price , D = dividend
+    CP = (D) / (h - g) # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 1.4, g = 0.06, h = 0.1190)
+print("Answer 6b: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+def CP(D, h, g): #CP = currenet price , D = dividend
+    CP = (D) / (h - g) # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 1.4, g = 0.06, h = 0.1530)
+print("Answer 6c: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+
+
+#7.	Metallic Bearings, Inc., is a young start-up company.  No dividends will be paid on the stock over the next 15 years because the firm needs to plow back its earnings to fuel growth.  The company will pay a $11 per share dividend in 16 years and will increase the dividend by 4 percent per year thereafter.
+#Required: If the required return on this stock is 12 percent, what is the current share price? (Do not round your intermediate calculations.)
+def CP(D, h, g, n): #CP = currenet price , D = dividend , n = number of years from now to start dividend
+    CP1 = (D) / (h - g) # h = growth of euity , g = growth of dividend
+    CP = CP1 / (( 1 + h) ** n)
+    return CP
+x = CP(D = 11, g = 0.04, h = 0.12, n = 15)
+print("Answer 7: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
+
+
+#8.	Far Side Corporation is expected to pay the following dividends over the next four years: $13, $11, $9, and $5. Afterward, the company pledges to maintain a constant 8 percent growth rate in dividends forever.
+#Required: If the required return on the stock is 17 percent, what is the current share price? (Do not round your Intermediate calculations.)
+def CP(D, h, g): # h = growth of euity , g = growth of dividend
+                #CP = currenet price , D = dividend
+    sum = 0
+    for i in range(0,4):
+        if i < 3:
+            p = (D[i]) / ((1 + h) ** (i+1))
+            sum += p
+        elif i == 3:
+            sum = sum + ((D[i] / (( 1 + h) ** (i + 1))) * ( 1 + ((1 + g) / (h - g))))
+    return sum        
+u = CP(D = [13, 11, 9, 5], g = 0.08, h = 0.17)            
+print("Answer 8: The current share price is {}".format("{:,.4f} $".format(u)))            
+        
+    
+#9.	Marcel Co. is growing quickly. Dividends are expected to grow at a 18 percent rate for the next 3 years, with the growth rate falling off to a constant 4 percent thereafter.
+#Required: If the required return is 7 percent and the company just paid a $1.60 dividend.  What is the current share price?  (Do not round your intermediate calculations.)
+def CP(D, h, g1, g2):      # h = growth of euity , g1 = growth of dividend UNTIL 3 years
+                           #CP = currenet price , D = dividend
+    sum = 0                #g2 = growth of dividend AFTER 3 years
+    for i in range(0,3):
+        if i < 2:
+            p = (D * ((1 + g1) ** (i + 1))) / ((1 + h) ** (i+1))
+            sum += p
+        elif i == 2:
+            sum = sum + (((D * ((1 + g1) ** (i + 1))) / (( 1 + h) ** (i + 1)))
+            * ( 1 + ((1 + g2) / (h - g2))))
+    return sum        
+u = CP(D = 1.60, g1 = 0.18, g2 = 0.04, h = 0.07)            
+print("Answer 9: The current share price is {}".format("{:,.4f} $".format(u))) 
+
+#10.	Antiques R Us is a mature manufacturing firm. The company just paid a $18 dividend, but management expects to reduce the payout by 12 percent per year indefinitely.  
+#Required: If you require an 19 percent return on this stock, what will you pay for a share today?
+def CP(D, h, g): #CP = currenet price , D = dividend
+    CP = (D * ( 1 + g)) / (h - g)        # h = growth of euity , g = growth of dividend
+    return CP
+x = CP(D = 18, g = - 0.12, h = 0.19)
+print("Answer 10: The current price of the stock is {} ".format("{:,.4f} $".format(x)))
